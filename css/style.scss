@@ -1,0 +1,494 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500&display=swap');
+
+*{
+   font-family: 'Nunito', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   transition: all .2s linear;
+}
+a{text-decoration: none;}
+
+$blue:#0097e6;
+$black:#000;
+$white:#fff;
+$light-color:#aaa;
+$light-bg:#0a0a0a;
+$border:.1rem solid rgba(255,255,255,.2);
+
+
+@mixin grid($val){
+   display: grid;
+   grid-template-columns: repeat(auto-fit , minmax($val , 1fr));
+}
+
+.heading{
+   text-align: center;
+   padding:10rem;
+   span{
+      color: $blue;
+   }
+}
+
+
+
+body{
+   background-color: $black;
+   color: white;
+}
+
+
+
+// start style the navbar
+header{
+   width: 100%;
+   position: fixed;
+   display: none;
+   justify-content: space-between;
+   align-items: center;
+   padding:1rem 2.5rem;
+   font-size: 1.5rem;
+   z-index: 999;
+   background-color: $black;
+   border-bottom: $border;
+   
+   .logo{
+      color: $white;
+      font-size: 1.9rem;
+   }
+   
+   nav{
+      a{
+         margin: 0px 10px;
+         color: $white;
+         &:hover{
+            color:$blue;
+         }
+      }
+   }
+   .icons{
+      div,a{
+         background: $white;
+         color: $black;
+         padding: .4rem;
+         margin: 3px;
+         cursor: pointer;
+         &:hover{
+            color: $white;
+            background: $blue;
+         }
+      }
+      #menu-btn{
+         display: none;
+      }
+   }
+      .search-form{
+         position: absolute;
+         top: -80px; left: 0px;
+         border-bottom: $border;
+      .search{
+         padding: 1rem;
+         background-color:$black;
+         color: $white;
+         width: 100vw;
+         font-size: 1rem;
+         padding-left: 7rem;
+         z-index: 112;
+      }
+      label{
+         position: absolute;
+         top: 15px; right: 140px;
+      }
+   } 
+   .search-form_none{
+      position: absolute;
+      top: 88px; left: 0px;
+   }
+}
+@media screen and (max-width:1064px ){
+   .header{
+      .icons{
+         #menu-btn{ display:inline; }
+      }
+      .navbar{
+         position: absolute;
+         top: -58rem; left:0px;
+         display: grid;
+         grid-column: 1fr;
+         width: 100%;
+         height: 350px;
+      }
+      .nav_block{
+         position: absolute;
+         top: 65px; left:0px; 
+         display: grid;
+         grid-column: 1fr;
+         width: 100%;
+         height: 350px;
+         background-color: $black;
+      }
+   }
+
+}
+// end style the navbar
+
+
+
+// start style the home 
+.home{
+   position: relative;
+   width: 100%;
+   height: 100vh;
+   overflow: hidden;
+   background-image:url('../images/home-bg.jpg');
+   background-size:  cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+
+   .content{
+      position: relative;
+      top: 0px; left:0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 50%;
+      z-index: 9;
+      text-transform: uppercase;
+
+      p{ font-size: 2rem; }
+      h3{font-size: 4.2rem;}
+   }
+
+   // style the All pohto
+   .tree{
+      z-index: 101;
+      position: absolute;
+      bottom: 0px;  left: 0px;
+      height: 18rem;
+   }
+   .mountain{
+      position: absolute;
+      bottom: 0px;
+      height: 30rem;
+      z-index: 99;
+   }
+   .moon{
+      position: absolute;
+      top: 0rem; left: 50%; bottom: 0px;
+      margin-top: 5rem;
+      width: 30vw;  height: auto;
+      transform: translateX(-50%);
+      z-index: 98;
+   }
+
+   .cloud-1{
+      position: absolute;
+      top:3rem; left:0px;
+      transform: translateX(60%);
+      z-index: 97;
+      width: 60%;
+      height: auto;
+   }
+
+   .cloud-2{
+      position: absolute;
+      top:10rem;  left:0px;
+      z-index: 97;
+      width: 50%;
+      height: auto;
+   }
+
+   img{
+      position: absolute;
+      height: 100vh; width: 100%;
+      object-fit: cover;
+   }
+}
+// end style the home 
+
+
+
+// start style the about
+.about{
+   @include grid(22rem);
+   align-items: center;
+
+   .image{
+      width: 90%;
+      img{
+         width: 100%;
+         height: auto;
+      }
+   }
+   .content{
+      span{ color: $blue;}
+
+      h3{ font-size: 2rem;}
+
+      p{line-height: 30px;}
+   }
+}
+// end style the about
+
+
+
+// start style the our prodects
+.products{
+   width: 100%;
+
+   .box-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      
+      .box_product{
+         padding-bottom: 2rem;
+         overflow: hidden;
+
+         .image{
+            img{ width: 40%; } 
+         }
+         .stars{color: $blue;}
+
+         .icons{
+            // opacity: 0;
+            position: absolute;
+            top: -550px; left: 50px;
+            font-size: 1.5rem;
+            background-color:rgba(0, 0, 0, 0.438);
+            width: 80%;
+            height: 20rem;
+            a{
+               background-color: $white;
+               color: $black;
+               padding: 0.5rem;
+               margin-top: 30%;
+               &:hover{
+                  background-color: $blue;
+                  color:$white;
+               }
+            }
+         }
+         &:hover{
+            .icons{
+               opacity: 1;
+               position: absolute;
+               top: 0px; left: 50px;
+            }
+         }
+      }
+   }
+}
+// end style the our prodects
+
+
+
+
+// start style the service
+.services{
+   width: 90%;
+   margin: auto;
+   .box-container{
+      @include grid(18rem);
+      text-align: center;
+      gap:5rem;
+      
+      .box-bg{ background:rgba(170, 170, 170, 0.26); }
+      
+      .box{
+         width: 105%;
+         padding: 1rem 3rem;
+         border-radius: 0.5rem;
+
+         i{
+            background-color: $blue;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            padding: 1rem;
+            margin: 2.5rem 0px 0px 0rem;
+         }
+         h3{ padding: 1rem 0rem; }
+         
+         p{ line-height: 2rem;}
+         
+      }
+   }
+}
+// end style the service
+
+
+
+// start style the gallery
+.gallery{
+   width: 90%;
+   margin: auto;
+   .box-container{
+      columns: 0rem 3;
+      gap: 2rem;
+      img{
+         width: 100%;
+         margin-bottom: 2rem;
+         border-radius: .5rem;
+      }
+   }
+}
+// ends style the gallery
+
+
+
+// start style the contact
+.contact{
+   // margin: auto;
+   form{
+      margin: auto;
+      width: 500px;
+
+      input,textarea{
+         display: flex;
+         width: 100%;
+         border-bottom:$light-color solid 1px;
+         background: none; color: $white;
+         margin:2rem 0rem;
+         padding-bottom: .5rem;
+         font-size: 1.5rem;
+         
+         &:focus{ border-bottom:$blue solid 1px; }
+         
+      }
+      .btn{
+         border-radius: 0px;
+      }
+      textarea{ height: 150px;}
+   }
+}
+// end style the contact
+
+
+
+// start style the blogs
+.blogs{
+   width: 90%;
+   margin: auto;
+   padding: 5rem 0rem;
+   
+   .box-container{
+      @include grid(22rem);
+      gap: 2rem;
+      text-align: center;
+      
+      .box{
+         width: 100%;
+         overflow: hidden;
+      
+         img{
+            width: 100%;
+            
+            &:hover{
+               transform: scale(1.1);
+            }
+         }
+         
+         .content{
+            margin-top: 2rem;
+            p{ color: $light-color; }
+         }
+
+         .btn{
+            margin: 2rem 0rem;
+         }
+
+         .icons{
+            display: flex;
+            justify-content: space-around;
+            background-color:$light-bg;
+            padding:1rem 0rem;
+            a{
+               color: $white;
+               
+               i{
+                  margin-right: 1rem;
+                  font-size: 1.1rem;
+               }
+
+               &:hover,i{color: $blue; }
+            }
+         }
+      }
+   }
+}
+// end style the blogs
+
+
+// start style the footer
+.footer{
+   padding: 5rem;
+   background-color:$light-bg;
+   .box-container{
+      @include grid(15rem);
+      
+      .box{ 
+         a{
+            display: block;
+            margin: 1rem;
+            color:$white;
+            &:hover{
+               margin-left: 2.5rem;
+               color: $blue;
+            }
+            i{
+               color:$blue;
+               margin-right: .5rem;
+            }
+         }
+         form{
+            padding: 1rem;
+               .email{
+                  background: none;
+                  color: $white;
+                  font-size: 1.1rem;
+                  border:1px solid $light-color;
+                  padding: .5rem;
+               }
+               .btn{
+                  margin-top: 1rem;
+               }
+         }
+      }
+      .share{
+         display: flex; 
+         flex-wrap: wrap;
+         a{
+            background-color: $white;
+            color:$black;
+            font-size: 1.5rem;
+            padding: .8rem;
+            &:hover{
+               background-color:$blue;
+               margin-left: 1rem;
+               color: $white;
+            }
+         }
+      }
+   }
+}
+// end style the footer
+
+
+
+
+
+//  style the resposve Desing
+
+@media screen and (max-width:500px){
+   html{
+      font-size: 80%;
+   }
+   
+   .contact{
+      form{
+         max-width: 90%;
+      }
+   }
+}
